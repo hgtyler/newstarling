@@ -4,26 +4,6 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {
-        "menu": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "heading": "Heading",
-            "subtext": "<p>Share store details, promotions, or brand content with your customers.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "menu",
-        "text"
-      ],
       "settings": {
         "color_scheme": "scheme-792352b9-43be-4258-a70b-27dae93ff582",
         "newsletter_enable": false,

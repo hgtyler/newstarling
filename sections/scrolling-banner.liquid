@@ -1,0 +1,158 @@
+<style>
+    .scrolling-banner {
+        height: 80px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .scrolling-banner-content {
+        width: 3000px;
+        height: 45px;
+    }
+    .scrolling-banner-item {
+        display: inline-block;
+        margin-right: 20px; /* Spacing between items */
+        /* Add more styles as needed */
+    }
+    .scrolling-banner-text {
+        font-size: 14px;
+        color: white;
+    }
+
+    .scrolling-banner-image {
+    }
+</style>
+
+
+<div class="scrolling-banner color-{{ section.settings.color_scheme }}">
+    <div class="scrolling-banner-content">
+        {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                {%- when 'text' -%}
+                    <div class="scrolling-banner-text">
+                        <p>{{ block.settings.text }}</p>
+                    </div>
+                {%- when 'image' -%}
+                    <div class="scrolling-banner-image">
+                        {% if block.settings.image %}
+                            <img src="{{ block.settings.image | img_url: '60x60' }}" alt="">
+                        {% endif %}
+                        {% if block.settings.image_2 %}
+                            <img src="{{ block.settings.image_2 | img_url: '60x60' }}" alt="">
+                        {% endif %}
+                        {% if block.settings.image_3 %}
+                            <img src="{{ block.settings.image_3 | img_url: '60x60' }}" alt="">
+                        {% endif %}
+                        {% if block.settings.image_4 %}
+                            <img src="{{ block.settings.image_4 | img_url: '60x60' }}" alt="">
+                        {% endif %}
+                    </div>
+            {%- endcase -%}
+        {%- endfor -%}
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        var $scrollingBanner = $('.scrolling-banner-content');
+        var scrollContentWidth = $scrollingBanner.get(0).scrollWidth;
+        var containerWidth = $('.scrolling-banner').width();
+
+        // Clone items until the container is filled
+        while (scrollContentWidth <= containerWidth) {
+            $scrollingBanner.children().clone().appendTo($scrollingBanner);
+            scrollContentWidth = $scrollingBanner.get(0).scrollWidth;
+        }
+
+        // Continue with your scrolling function
+        function startScrolling() {
+            // ... (existing scrolling function)
+        }
+
+        startScrolling();
+    });
+</script>
+
+
+
+{% schema %}
+{
+    "name": "Scrolling Banner",
+    "settings": [
+      {
+        "type": "range",
+        "id": "scroll_speed",
+        "label": "Scroll Speed",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "default": 50,
+        "unit": "ms"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "accent-1"
+      }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "t:sections.scrolling-banner.blocks.text.name",
+            "limit": 1,
+            "settings": [
+              {
+                "type": "select",
+                "id": "text_style",
+                "options": [
+                  {
+                    "value": "body",
+                    "label": "t:sections.scrolling-banner.blocks.text.settings.text_style.options__1.label"
+                  },
+                  {
+                    "value": "subtitle",
+                    "label": "t:sections.scrolling-banner.blocks.text.settings.text_style.options__2.label"
+                  }
+                ],
+                "default": "body",
+                "label": "t:sections.scrolling-banner.blocks.text.settings.text_style.label"
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "name": "t:sections.scrolling-banner.blocks.image.name",
+            "settings": [
+                {
+                  "type": "image_picker",
+                  "id": "image",
+                  "label": "t:sections.scrolling-banner.settings.image.label"
+                },
+                {
+                  "type": "image_picker",
+                  "id": "image_2",
+                  "label": "t:sections.scrolling-banner.settings.image_2.label"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_3",
+                    "label": "t:sections.scrolling-banner.settings.image_3.label"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_4",
+                    "label": "t:sections.scrolling-banner.settings.image_4.label"
+                }
+            ]
+        }
+
+    ],
+    "presets": [
+      {
+        "name": "Custom Scrolling Banner",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

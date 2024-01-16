@@ -27,6 +27,18 @@
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
+
+  #Banner-{{ section.id }} {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+  }
+
+  .banner__media {
+    width: {{ section.settings.image_container_size }}%;
+    border-radius: {{ section.settings.image_border_radius }}px;
+    overflow: hidden;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -172,7 +184,7 @@
   "tag": "section",
   "class": "section",
   "disabled_on": {
-    "groups": ["header", "footer"]
+    "groups": ["footer"]
   },
   "settings": [
     {

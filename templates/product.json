@@ -3,13 +3,6 @@
         "main": {
             "type": "main-product",
             "blocks": {
-                "vendor": {
-                    "type": "text",
-                    "settings": {
-                        "text": "{{ product.vendor }}",
-                        "text_style": "uppercase"
-                    }
-                },
                 "title": {
                     "type": "title",
                     "settings": {}
@@ -27,37 +20,47 @@
                 },
                 "variant_picker": {
                     "type": "variant_picker",
-                    "settings": {}
-                },
-                "quantity_selector": {
-                    "type": "quantity_selector",
-                    "settings": {}
+                    "settings": {
+                        "picker_type": "dropdown"
+                    }
                 },
                 "buy_buttons": {
                     "type": "buy_buttons",
-                    "settings": {}
+                    "settings": {
+                        "show_dynamic_checkout": false,
+                        "show_gift_card_recipient": true
+                    }
                 },
-                "description": {
-                    "type": "description",
-                    "settings": {}
-                },
-                "share": {
-                    "type": "share",
-                    "settings": {}
+                "custom_liquid_9JNUxW": {
+                    "type": "custom_liquid",
+                    "settings": {
+                        "custom_liquid": "{% render 'product-desc' %}"
+                    }
                 }
             },
             "block_order": [
-                "vendor",
                 "title",
                 "subtitle",
                 "price",
                 "variant_picker",
-                "quantity_selector",
                 "buy_buttons",
-                "description",
-                "share"
+                "custom_liquid_9JNUxW"
             ],
-            "settings": {}
+            "settings": {
+                "enable_sticky_info": true,
+                "color_scheme": "",
+                "media_size": "large",
+                "constrain_to_viewport": true,
+                "media_fit": "contain",
+                "gallery_layout": "stacked",
+                "media_position": "left",
+                "image_zoom": "lightbox",
+                "mobile_thumbnails": "hide",
+                "hide_variants": false,
+                "enable_video_looping": false,
+                "padding_top": 36,
+                "padding_bottom": 36
+            }
         },
         "related-products": {
             "type": "related-products",

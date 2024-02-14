@@ -23,8 +23,6 @@
         "image": "shopify:\/\/shop_images\/MKSADLER-9693.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
-        "image_container_size": 95,
-        "image_border_radius": 20,
         "desktop_content_position": "middle-center",
         "show_text_box": true,
         "desktop_content_alignment": "center",

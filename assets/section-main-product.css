@@ -27,6 +27,7 @@
     }
     .product__info-wrapper {
         padding: 0 0 0 5rem;
+        text-align: center;
     }
     .product__info-wrapper--extra-padding {
         padding: 0 0 0 8rem;
@@ -269,7 +270,7 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input .select {
-    max-width: 25rem;
+    max-width: 45rem;
 }
 
 .product-form__submit {
@@ -311,6 +312,7 @@ fieldset.product-form__input .form__label {
 
 .product__info-container>*+* {
     margin: 1.5rem 0;
+    text-align: center;
 }
 
 .product__info-container iframe {
@@ -325,6 +327,7 @@ fieldset.product-form__input .form__label {
 
 .product__text {
     margin-bottom: 0;
+    text-align: center;
 }
 
 a.product__text {
@@ -341,6 +344,7 @@ a.product__text {
     word-break: break-word;
     margin-bottom: 1.5rem;
     font-family: 'BeirutDisplayWebBook';
+    text-align: center;
 }
 
 .product__title>* {
@@ -366,10 +370,12 @@ a.product__text {
 
 .product .price .badge {
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .product .price__container {
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .product .price dl {
